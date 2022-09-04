@@ -9,7 +9,11 @@
     </head>
 
     <body>
+        <?php 
+            include("connect.php");
+        ?>
         <div class="main_login">
+            
             <div class="left_login">
                 <h1>Login in<br> and enter our world!</h1>
                 <img src="skate_buddies.svg" class="left_login_img" alt="skate">
@@ -30,7 +34,7 @@
                         <input type="password" name="pass" placeholder="Insert password">
                     </div>
 
-                    <button class="but_login">Login</button>
+                    <button class="but_login" name="but_login">Login</button>
                 </div>
             </div>
         </div>
