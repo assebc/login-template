@@ -96,9 +96,8 @@ body *{
 .but_login{
     width: 100%;
     padding: 16px 0px;
-    margin: 25px;
-    border: none;
     border-radius: 8px;
+    border-width: 0;
     outline: none;
     text-transform: uppercase;
     font-weight: 800;
@@ -107,6 +106,25 @@ body *{
     background: #00ff88;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+.no_acc{
+    margin-bottom: 10px; 
+    width: 100%;
+}
+
+.no_acc a{
+    display: flex;
+    color: #f0ffff94;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.a_nodef{
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 950px){
