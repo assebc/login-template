@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>Register Template</title>
     </head>
 
@@ -18,27 +18,29 @@
             </div>
 
             <div class="right_login">
-                <div class="card_login">
+                <form class="card_login">
                     <h1>REGISTER</h1>
 
                     <div class="textfield">
                         <label for="user">Username</label>
-                        <input type="text" name="user" placeholder="Insert username">
+                        <input type="text" name="user" placeholder="Insert username" />
                     </div>
 
                     <div class="textfield">
                         <label for="pass">Password</label>
-                        <input type="password" name="pass" placeholder="Insert password">
+                        <input type="password" name="password" placeholder="Insert password" onChange="onChange()"/>
                     </div>
 
-                    <div class="textfield">
+                    <div class="textfield">    
                         <label for="pass">Confirm Password</label>
-                        <input type="password" name="pass" placeholder="Confirm password">
+                        <input type="password" name="confirm" placeholder="Confirm password" onChange="onChange()"/>   
                     </div>
 
-                    <a class="a_nodef" href="index.html" style="margin-top: 10px;"><button class="but_login" name="but_login">Register</button></a>
-                </div>
+                    <a class="a_nodef" href="#" style="margin-top: 10px;"><button class="but_login" name="but_login">Register</button></a>  
+                </form>
+                <script type="text/javascirpt" src="js/confirm.js"></script>
             </div>
         </div>
+        
     </body>
 </html>
