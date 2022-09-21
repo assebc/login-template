@@ -1,15 +1,17 @@
 function onChange() {
     const password = document.querySelector("input[name=password]");
     const confirm = document.querySelector("input[name=confirm]");
-    const but = document.getElementsByClassName("a_nodef");
+    const but = document.querySelector(".a_nodef");
+    const res = true;
     if (confirm.value != password.value) {
         confirm.setCustomValidity("Passwords do not match");
-        return false;
+        res = false;
     } else{
+        confirm.setCustomValidity("");
         but.href="index.html";
     }
     confirm.reportValidity();
-    return true;
+    return res;
 }
 
 /*
