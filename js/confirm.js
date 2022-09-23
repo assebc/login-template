@@ -2,7 +2,7 @@ function onChange() {
     const password = document.querySelector("input[name=password]");
     const confirm = document.querySelector("input[name=confirm]");
     const but = document.querySelector(".a_nodef");
-    const res = true;
+    let res = true;
     if (confirm.value != password.value) {
         confirm.setCustomValidity("Passwords do not match");
         res = false;

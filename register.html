@@ -10,14 +10,15 @@
 
     <body>
         <div class="main_login">
-            
+            <script type="text/javascript" src="js/confirm.js"></script>
             <div class="left_login">
                 <h1>Login in<br> and enter our world!</h1>
                 <img src="skate_buddies.svg" class="left_login_img" alt="skate">
 
             </div>
-
+            
             <div class="right_login">
+                
                 <form class="card_login">
                     <h1>REGISTER</h1>
 
@@ -28,25 +29,23 @@
 
                     <div class="textfield">
                         <label for="pass">Password</label>
-                        <input type="password" name="password" placeholder="Insert password"/>
+                        <input type="password" name="password" placeholder="Insert password" />
                     </div>
 
                     <div class="textfield">    
                         <label for="pass">Confirm Password</label>
-                        <input type="password" name="confirm" placeholder="Confirm password"/>   
+                        <input type="password" name="confirm" placeholder="Confirm password" />   
                     </div>
                     
-                    <div class="password_quality" style="display: none;" >
+                    <div class="password_quality" style="display: none;">
                         <div class="password_quality_easy" style="display: none;"></div>
                         <div class="password_quality_med" style="display: none;"></div>
                         <div class="password_quality_med_hard" style="display: none;"></div>
                         <div class="password_quality_hard" style="display: none;"></div>
                     </div>
                     
-
-                    <a class="a_nodef" href="#" style="margin-top: 10px;"><button class="but_login" name="but_login">Register</button></a>  
-                </form>
-                <script type="text/javascirpt" src="js/confirm.js"></script>
+                    <a class="a_nodef" href="index.html" style="margin-top: 10px;"><button class="but_login" name="but_login" onclick="onChange()">Register</button></a>  
+                </form> 
             </div>
         </div>
         
