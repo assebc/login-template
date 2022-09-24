@@ -63,7 +63,7 @@ function checkSteps(){
 
 function checkLogin(){
     const user = document.querySelector('input[name=user]');
-    const password = document.querySelector("input[name=password]");
+    const password = document.querySelector("input[name=pass]");
     if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity(""); // TODO: check in DB
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity(""); // TODO: check in DB
 
