@@ -4,13 +4,12 @@ function onChange() {
     const but = document.querySelector(".a_nodef");
     let res = true;
     if (confirm.value != password.value) {
-        confirm.setCustomValidity("Passwords do not match");
+        confirm.setCustomValidity("Passwords do not match!");
         res = false;
     } else{
         confirm.setCustomValidity("");
         but.href="index.html";
     }
-    confirm.reportValidity();
     return res;
 }
 
@@ -51,4 +50,21 @@ function difficulty(){
             } 
         }
     }
+}
+
+function checkSteps(){
+    const user = document.querySelector('input[name=user]');
+    const password = document.querySelector("input[name=password]");
+    const confirm = document.querySelector("input[name=confirm]");
+    if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity("");
+    if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity("");
+    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange();
+}
+
+function checkLogin(){
+    const user = document.querySelector('input[name=user]');
+    const password = document.querySelector("input[name=password]");
+    if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity(""); // TODO: check in DB
+    if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity(""); // TODO: check in DB
+
 }
