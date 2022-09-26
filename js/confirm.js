@@ -1,3 +1,12 @@
+function containsNumbers(str) {
+    return /[0-9]/.test(str);
+}
+
+function containsSpecialChars(str) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    return specialChars.test(str);
+}
+
 function onChange() {
     const password = document.querySelector("input[name=password]");
     const confirm = document.querySelector("input[name=confirm]");
@@ -21,15 +30,6 @@ function onChange() {
 
 */
 
-function containsNumbers(str) {
-    return /[0-9]/.test(str);
-}
-
-function containsSpecialChars(str) {
-    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    return specialChars.test(str);
-}
-
 function difficulty(){
     const password = document.querySelector('input[name=password]');
     if(onChange()){
@@ -52,11 +52,18 @@ function difficulty(){
     }
 }
 
+function checkEmail(){
+    const email = document.querySelector('input[name=email]');
+    
+}
+
 function checkSteps(){
     const user = document.querySelector('input[name=user]');
+    const email = document.querySelector('input[name=email');
     const password = document.querySelector("input[name=password]");
     const confirm = document.querySelector("input[name=confirm]");
     if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity("");
+    if(email.value=="") email.setCustomValidity("Requires to insert an email!"); else checkEmail();
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity("");
     if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange();
 }
@@ -64,7 +71,7 @@ function checkSteps(){
 function checkLogin(){
     const user = document.querySelector('input[name=user]');
     const password = document.querySelector("input[name=pass]");
-    if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity(""); // TODO: check in DB
+    if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity(""); // TODO: check in DB, accept username and email
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity(""); // TODO: check in DB
 
 }
