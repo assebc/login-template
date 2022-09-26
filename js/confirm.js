@@ -52,9 +52,12 @@ function difficulty(){
     }
 }
 
-function checkEmail(){
-    const email = document.querySelector('input[name=email]');
-    
+
+function validateEmail() {
+    const email = document.querySelector('input[name=email');
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(re.test(email)) email.setCustomValidity("");
+    else email.setCustomValidity("Please insert a valid email!");
 }
 
 function checkSteps(){
@@ -63,9 +66,9 @@ function checkSteps(){
     const password = document.querySelector("input[name=password]");
     const confirm = document.querySelector("input[name=confirm]");
     if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity("");
-    if(email.value=="") email.setCustomValidity("Requires to insert an email!"); else checkEmail();
+    if(email.value=="") email.setCustomValidity("Requires to insert an email!"); else validateEmail();
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity("");
-    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange();
+    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange(); 
 }
 
 function checkLogin(){
