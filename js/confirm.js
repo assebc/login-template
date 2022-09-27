@@ -8,8 +8,8 @@ function containsSpecialChars(str) {
 }
 
 function onChange() {
-    const password = document.querySelector("input[name=password]");
-    const confirm = document.querySelector("input[name=confirm]");
+    let password = document.querySelector("input[name=password]");
+    let confirm = document.querySelector("input[name=confirm]");
     const but = document.querySelector(".a_nodef");
     let res = true;
     if (confirm.value != password.value) {
@@ -31,7 +31,12 @@ function onChange() {
 */
 
 function difficulty(){
-    const password = document.querySelector('input[name=password]');
+    let password = document.querySelector('input[name=password]');
+    document.getElementsByClassName("password_quality").style.display = "none";
+    document.getElementsByClassName("password_quality_easy").style.display = "none";
+    document.getElementsByClassName("password_quality_med").style.display = "none";
+    document.getElementsByClassName("password_quality_med_hard").style.display = "none";
+    document.getElementsByClassName("password_quality_hard").style.display = "none";
     if(onChange()){
         document.getElementsByClassName("password_quality").style.display = "flex"; 
         if(password.length<8) document.getElementsByClassName("password_quality_easy").style.display = "flex"; // easy
@@ -52,27 +57,9 @@ function difficulty(){
     }
 }
 
-function validateEmail() {
-    let input = document.querySelector('input[name=email]');
-    return typeof input.checkValidity === 'function' ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
-}
-
-function checkSteps(){
-    const user = document.querySelector('input[name=user]');
-    const email = document.querySelector('input[name=email');
-    const password = document.querySelector("input[name=password]");
-    const confirm = document.querySelector("input[name=confirm]");
-    if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity("");
-    if(email.value=="") email.setCustomValidity("Requires to insert an email!"); else validateEmail();
-    if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity("");
-    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange();
-    
-}
-
 function checkLogin(){
     const user = document.querySelector('input[name=user]');
     const password = document.querySelector("input[name=pass]");
     if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity(""); // TODO: check in DB, accept username and email
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity(""); // TODO: check in DB
-
 }
