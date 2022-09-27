@@ -53,10 +53,8 @@ function difficulty(){
 }
 
 function validateEmail() {
-    let email = document.querySelector('input[name=email');
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(re.test(email)) email.setCustomValidity("");
-    else email.setCustomValidity("Please insert a valid email!");
+    let input = document.querySelector('input[name=email]');
+    return typeof input.checkValidity === 'function' ? input.checkValidity() : /\S+@\S+\.\S+/.test(value);
 }
 
 function checkSteps(){
@@ -67,7 +65,8 @@ function checkSteps(){
     if(user.value=="") user.setCustomValidity("Requires to insert an username!"); else user.setCustomValidity("");
     if(email.value=="") email.setCustomValidity("Requires to insert an email!"); else validateEmail();
     if(password.value=="") password.setCustomValidity("Requires to insert a password!"); else password.setCustomValidity("");
-    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange(); 
+    if(confirm.value=="") confirm.setCustomValidity("Please confirm your password!"); else onChange();
+    
 }
 
 function checkLogin(){
