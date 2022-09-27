@@ -10,18 +10,18 @@ function containsSpecialChars(str) {
 function onChange() {
     let password = document.querySelector("input[name=password]");
     let confirm = document.querySelector("input[name=confirm]");
-    const but = document.querySelector(".a_nodef");
-    let res = true;
     if (confirm.value != password.value) {
         confirm.setCustomValidity("Passwords do not match!");
-        res = false;
     } else{
         confirm.setCustomValidity("");
-        but.href="thankyou.html";
+        return true;
     }
-    return res;
+    return false;
 }
 
+function register(){
+    document.getElementById("a_nodef").setAttribute("href","thankyou.html");
+}
 /*
     EASY - < 8 chars
     MEDIUM - >= 8 chars >= 1 maiscula/minuscula
