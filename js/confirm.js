@@ -17,7 +17,7 @@ function onChange() {
         res = false;
     } else{
         confirm.setCustomValidity("");
-        but.href="index.html";
+        but.href="thankyou.html";
     }
     return res;
 }
@@ -52,9 +52,8 @@ function difficulty(){
     }
 }
 
-
 function validateEmail() {
-    const email = document.querySelector('input[name=email');
+    let email = document.querySelector('input[name=email');
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(re.test(email)) email.setCustomValidity("");
     else email.setCustomValidity("Please insert a valid email!");
