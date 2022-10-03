@@ -20,7 +20,10 @@ function onChange() {
 }
 
 function register(){
-    document.getElementById("a_nodef").setAttribute("href","thankyou.html");
+    if(onChange()){
+        document.getElementById("but_login").setAttribute("type","button");
+        document.getElementById("a_nodef").setAttribute("href","thankyou.html");
+    }
 }
 /*
     EASY - < 8 chars
