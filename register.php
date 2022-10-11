@@ -1,3 +1,17 @@
+<?php
+
+    if(isset($_POST['but_login'])){
+        include_once('config.php');
+
+        $user = $_POST['user'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,email,password) VALUES($user,$email,$password)");
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +35,7 @@
             
             <div class="right_login">
                 
-                <form class="card_login">
+                <form class="card_login" action="register.php" method="POST">
                     <h1>REGISTER</h1>
 
                     <div class="textfield">
