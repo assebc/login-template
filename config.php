@@ -2,7 +2,7 @@
 
     $dbHost = 'Localhost';
     $dbUsername = 'root'
-    $dbPassword = 'Boybessa1';
+    $dbPassword = '';
     $dbName = 'login-template'
 
     $conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
