@@ -1,16 +1,3 @@
-<?php
-
-    if(isset($_POST['but_login'])){
-        include_once('config.php');
-
-        $user = $_POST['user'];
-        $password = $_POST['password'];
-
-        $result = mysqli_query($conexao, "IF EXISTS(SELECT * FROM users WHERE user == $user OR email == $user AND password == $password)");
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

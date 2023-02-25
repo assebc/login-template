@@ -1,0 +1,18 @@
+.presentation_side{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.presentation_side > h1{
+  font-size: 3vw;
+  color: #77ffc0;
+}
+
+.presentation_side > img{
+  width: 35vw;
+}
