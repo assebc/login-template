@@ -1,7 +1,10 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export const Form: FC = () => {
+const navigate = useNavigate();
+
   return (
     <div className="form">
       <div className="card_form">
@@ -18,11 +21,11 @@ export const Form: FC = () => {
         </div>
 
         <div className="no_account">
-          <a href="register.html">Do not have an account? Register here!</a>
+          <a onClick={() => navigate("/register")}>Do not have an account? Register here!</a>
         </div>
 
-        <a className="a_nodef" href="#">
-          <button className="button_login" name="button_login" onClick={() => {}}>
+        <a className="a_nodef">
+          <button className="button_login" name="button_login">
             Login
           </button>
         </a>

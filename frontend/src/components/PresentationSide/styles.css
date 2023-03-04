@@ -8,11 +8,12 @@
   overflow-y: hidden;
 }
 
-.presentation_side > h1{
+.presentation_side h1{
   font-size: 3vw;
   color: #77ffc0;
+  text-align: left;
 }
 
-.presentation_side > img{
-  width: 35vw;
+.presentation_side img{
+  width: 32vw;
 }
