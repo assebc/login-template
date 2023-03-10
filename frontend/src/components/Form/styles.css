@@ -84,9 +84,10 @@
   text-decoration: none;
 }
 
-.a_nodef{
-  text-decoration: none;
-  color: inherit;
-  width: 100%;
+.no_account a:hover{
+  display: flex;
+  color: #00ff88;
+  font-size: 1.5em;
   cursor: pointer;
+  text-decoration: underline;
 }

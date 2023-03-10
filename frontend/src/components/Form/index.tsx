@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export const Form: FC = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="form">
@@ -21,14 +21,20 @@ const navigate = useNavigate();
         </div>
 
         <div className="no_account">
+          <a onClick={() => navigate("forgot-password")}>Forgot password? Click here!</a>
+        </div>
+
+        <button 
+          className="button_login" 
+          name="button_login"
+          onClick={() => navigate("/thank-you")}>
+          Login
+        </button>
+
+        <div className="no_account" style={{marginTop: "12px"}}>
           <a onClick={() => navigate("/register")}>Do not have an account? Register here!</a>
         </div>
 
-        <a className="a_nodef">
-          <button className="button_login" name="button_login">
-            Login
-          </button>
-        </a>
       </div>
     </div>
   );
