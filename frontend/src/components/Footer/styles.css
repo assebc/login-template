@@ -1,0 +1,13 @@
+.footer{
+  text-align: center; 
+  width: 100vw;
+  height: 4vh;
+  line-height: 0;
+  background: #201b2c;
+  color: aliceblue;
+}
+
+.footer a{
+  color: #00ff88;
+  text-decoration: none;
+}
