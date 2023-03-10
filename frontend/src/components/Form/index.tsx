@@ -1,14 +1,29 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
-export const Form: FC = () => {
+interface IFormProps {
+  children: ReactNode;
+  login?: boolean;
+  register?: boolean;
+  password?: boolean;
+  onClick?: () => void;
+}
+
+export const Form: FC<IFormProps> = ({
+    children,
+    login,
+    register,
+    password,
+    onClick,
+  }) => {
+
   const navigate = useNavigate();
 
   return (
     <div className="form">
       <div className="card_form">
-        <h1>LOGIN</h1>
+        <h1>{children}</h1>
 
         <div className="textfield">
           <label htmlFor="user">Username</label>
@@ -16,24 +31,54 @@ export const Form: FC = () => {
         </div>
 
         <div className="textfield">
-          <label htmlFor="pass">Password</label>
+          { register || login ? <label htmlFor="pass">Password</label> : <label htmlFor="pass">New Password</label>}
           <input type="password" name="pass" placeholder="Insert password" required autoComplete="off"/>
         </div>
+        
+        { register || password ?
+          <div className="textfield">
+            <label htmlFor="pass">Confirm Password</label>
+            <input 
+              type="password" 
+              name="pass" 
+              placeholder="Confirm password" 
+              required 
+              autoComplete="off"
+            />
+          </div>
+          : undefined
+        }
 
         <div className="no_account">
-          <a onClick={() => navigate("forgot-password")}>Forgot password? Click here!</a>
+          { login ? 
+            <a 
+              onClick={() => navigate("/forgot-password")}>
+                Forgot password? Click here!
+            </a> 
+            : undefined }
+          { register ?
+            <a 
+              onClick={() => navigate("/")}>
+                Already have and account? Please login here!
+              </a>
+            : undefined
+          }
         </div>
+        
 
         <button 
           className="button_login" 
           name="button_login"
-          onClick={() => navigate("/thank-you")}>
-          Login
+          onClick={() => (onClick ? onClick() : undefined)}>
+          {children}
         </button>
-
-        <div className="no_account" style={{marginTop: "12px"}}>
-          <a onClick={() => navigate("/register")}>Do not have an account? Register here!</a>
-        </div>
+        
+        { login || password ?
+          <div className="no_account" style={{marginTop: "12px"}}>
+            <a onClick={() => navigate("/register")}>Do not have an account? Register here!</a>
+          </div>
+          : undefined
+        }
 
       </div>
     </div>

@@ -5,13 +5,13 @@ import { Footer } from "../../components/Footer";
 import { useNavigate } from "react-router-dom";
 import "../../styles.css";
 
-export const Login: FC = () => {
+export const ForgotPassword: FC = () => {
   const navigate = useNavigate();
   return (
     <>
       <div className="splitted_screen">
         <PresentationSide />
-        <Form login={true} children={"LOGIN"} onClick={() => navigate("/thank-you")}/>
+        <Form password={true} children={"CHANGE PASSWORD"} onClick={() => navigate("/")}/>
       </div>
       <Footer />
     </>
