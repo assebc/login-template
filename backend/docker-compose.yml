@@ -7,7 +7,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: login_template
+      MYSQL_DATABASE: LoginTemplate
       MYSQL_ROOT_PASSWORD: superpassword
     volumes:
       - "./data:/var/lib/mysql"

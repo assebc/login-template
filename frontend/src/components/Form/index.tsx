@@ -27,12 +27,12 @@ export const Form: FC<IFormProps> = ({
 
         <div className="textfield">
           <label htmlFor="user">Username</label>
-          <input type="text" name="user" placeholder="Insert username" required autoComplete="off"/>
+          <input type="text" name="username" placeholder="Insert username" required autoComplete="off"/>
         </div>
 
         <div className="textfield">
           { register || login ? <label htmlFor="pass">Password</label> : <label htmlFor="pass">New Password</label>}
-          <input type="password" name="pass" placeholder="Insert password" required autoComplete="off"/>
+          <input type="password" name="password" placeholder="Insert password" required autoComplete="off"/>
         </div>
         
         { register || password ?
@@ -40,7 +40,7 @@ export const Form: FC<IFormProps> = ({
             <label htmlFor="pass">Confirm Password</label>
             <input 
               type="password" 
-              name="pass" 
+              name="confirm_password" 
               placeholder="Confirm password" 
               required 
               autoComplete="off"
@@ -64,12 +64,11 @@ export const Form: FC<IFormProps> = ({
             : undefined
           }
         </div>
-        
-
+          
         <button 
           className="button_login" 
           name="button_login"
-          onClick={() => (onClick ? onClick() : undefined)}>
+          onClick={() => onClick ? onClick() : undefined}>
           {children}
         </button>
         
