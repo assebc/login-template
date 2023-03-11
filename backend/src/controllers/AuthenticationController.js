@@ -1,6 +1,6 @@
-import { sign } from "jsonwebtoken";
-import { compare } from "bcryptjs";
-import { prisma } from "prisma";
+import { prisma } from "../prisma.js";
+import "jsonwebtoken";
+import "bcryptjs";
 
 class AuthenticationController {
   async login(request, response){
@@ -16,10 +16,10 @@ class AuthenticationController {
     if(!user)
       return response.status(400).json({ error: "Invalid credentials!" });
 
-    if(!(await compare(password, user.password)))
+    if(!(await bcryptjs.compare(password, user.password)))
       return response.status(400).json({ message: "Invalid credentials!" });
     
-    const token = sign({}, process.env.JWT_SECRET, {
+    const token = jsonwebtoken.sign({}, process.env.JWT_SECRET, {
       subject: toString(user.id),
       expiresIn: "id",
     });

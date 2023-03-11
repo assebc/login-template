@@ -1,6 +1,5 @@
-import { prisma } from "../prisma";
-import { Prisma, User } from "@prisma/client";
-import { hash } from "bcryptjs";
+import { prisma } from "../prisma.js";
+import "bcryptjs";
 
 class UserController {
   async register(request, response){
@@ -10,7 +9,7 @@ class UserController {
       return response.status(400).json({ error: "Invalid data!" });
 
     try {
-      const hashedPw = await hash(password, +process.env.SALT);
+      const hashedPw = await bcryptjs.hash(password, +process.env.SALT);
       const newUser = await prisma.user.register({
         data: {
           username,
@@ -51,7 +50,7 @@ class UserController {
     if(!(new_password === confirm_password))
       return response.status(400).son({ error: "Passwords don't match!" });
 
-    const newPasswordHashed = await hash(
+    const newPasswordHashed = await bcryptjs.hash(
       new_password,
       +process.env.SALT
     );
