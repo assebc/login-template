@@ -18,6 +18,7 @@ export const Register: FC = () => {
     if (password !== confirm_password)
       return message.error("Passwords do not match!");
 
+    console.log("aqui");
     try {
       const response = await api.post("/register", {
         username,
@@ -25,7 +26,7 @@ export const Register: FC = () => {
         confirm_password,
       });
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         message.success("Account created with success!", 3);
         navigate("/");
       }
@@ -38,7 +39,17 @@ export const Register: FC = () => {
     <>
       <div className="splitted_screen">
         <PresentationSide />
-        <Form register={true} children={"REGISTER"} onClick={() => handleSubmit}/>
+        <Form
+          register={true}
+          children={"REGISTER"}
+          onClick={() =>
+            handleSubmit({
+              username: "asd1",
+              password: "asd",
+              confirm_password: "asd",
+            })
+          }
+        />
       </div>
       <Footer />
     </>

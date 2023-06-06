@@ -1,5 +1,6 @@
 import { prisma } from "../prisma.js";
-import "bcryptjs";
+import { Prisma } from '@prisma/client';
+import bcryptjs from "bcryptjs";
 
 class UserController {
   async register(request, response){
@@ -9,14 +10,15 @@ class UserController {
       return response.status(400).json({ error: "Invalid data!" });
 
     try {
-      const hashedPw = await bcryptjs.hash(password, +process.env.SALT);
-      const newUser = await prisma.user.register({
+      console.log("123123")
+      const hashedPw = await bcryptjs.hash(password, 10);
+      console.log("########")
+      const newUser = await prisma.user.create({
         data: {
           username,
           password: hashedPw,
         },
       });
-
       return response.status(201).json(newUser);
 
     } catch(error){
