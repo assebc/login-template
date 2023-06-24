@@ -7,16 +7,16 @@ interface IFormProps {
   login?: boolean;
   register?: boolean;
   password?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 export const Form: FC<IFormProps> = ({
-    children,
-    login,
-    register,
-    password,
-    onClick,
-  }) => {
+  children,
+  login,
+  register,
+  password,
+  onClick,
+}) => {
 
   const navigate = useNavigate();
 
@@ -27,15 +27,33 @@ export const Form: FC<IFormProps> = ({
 
         <div className="textfield">
           <label htmlFor="user">Username</label>
-          <input type="text" name="username" placeholder="Insert username" required autoComplete="off"/>
+          <input 
+            type="text" 
+            name="username" 
+            placeholder="Insert username" 
+            required 
+            autoComplete="off"
+          />
         </div>
 
         <div className="textfield">
-          { register || login ? <label htmlFor="pass">Password</label> : <label htmlFor="pass">New Password</label>}
-          <input type="password" name="password" placeholder="Insert password" required autoComplete="off"/>
+          { register || login ? (
+            <label htmlFor="pass">Password</label> 
+          ) : (
+            <label htmlFor="pass">New Password</label>
+          )}
+          
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Insert password" 
+            required 
+            autoComplete="off"
+          />
+
         </div>
         
-        { register || password ?
+        { register || password ? (
           <div className="textfield">
             <label htmlFor="pass">Confirm Password</label>
             <input 
@@ -46,38 +64,39 @@ export const Form: FC<IFormProps> = ({
               autoComplete="off"
             />
           </div>
-          : undefined
-        }
+
+        ): undefined }
 
         <div className="no_account">
-          { login ? 
+          { login ? (
             <a 
               onClick={() => navigate("/forgot-password")}>
                 Forgot password? Click here!
             </a> 
-            : undefined }
-          { register ?
+          ) : undefined }
+
+          { register ? (
             <a 
               onClick={() => navigate("/")}>
                 Already have and account? Please login here!
               </a>
-            : undefined
-          }
+          ) : undefined }
         </div>
           
         <button 
           className="button_login" 
           name="button_login"
-          onClick={() => onClick ? onClick() : undefined}>
+          onClick={onClick}>
           {children}
         </button>
         
-        { login || password ?
+        { login || password ? (
           <div className="no_account" style={{marginTop: "12px"}}>
-            <a onClick={() => navigate("/register")}>Do not have an account? Register here!</a>
+            <a onClick={() => navigate("/register")}>
+              Do not have an account? Register here!
+            </a>
           </div>
-          : undefined
-        }
+        ) : undefined }
 
       </div>
     </div>
