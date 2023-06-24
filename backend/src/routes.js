@@ -10,7 +10,7 @@ routes.get("", (_,res) => {
 
 routes.post("/", AuthenticationController.login);
 routes.post("/register", UserController.register);
-routes.put("/forgot-password", UserController.forgot_password);
+routes.patch("/forgot-password", UserController.forgot_password);
 
 
 export { routes };
