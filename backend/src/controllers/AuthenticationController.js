@@ -1,6 +1,6 @@
 import { prisma } from "../prisma.js";
-import "jsonwebtoken";
-import "bcryptjs";
+import jsonwebtoken from "jsonwebtoken";
+import bcryptjs from "bcryptjs";
 
 class AuthenticationController {
   async login(request, response){

@@ -1,5 +1,6 @@
 import { prisma } from "../prisma.js";
-import "bcryptjs";
+import { Prisma } from "@prisma/client";
+import bcryptjs from "bcryptjs";
 
 class UserController {
   async register(request, response){
