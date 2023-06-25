@@ -38,7 +38,6 @@ class UserController {
     const user = await prisma.user.findFirst({
       where: {
         username,
-        deleted: false,
       },
     });
 

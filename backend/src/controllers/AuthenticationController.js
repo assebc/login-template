@@ -21,7 +21,7 @@ class AuthenticationController {
     
     const token = jsonwebtoken.sign({}, process.env.JWT_SECRET, {
       subject: toString(user.id),
-      expiresIn: "id",
+      expiresIn: "1d",
     });
     
     return response.json(token);
