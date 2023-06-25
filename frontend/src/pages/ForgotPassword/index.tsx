@@ -24,7 +24,6 @@ export const ForgotPassword: FC = () => {
         new_password,
         confirm_password,
       });
-
       if (response.status === 200) {
         message.success("Password changed successfully!", 3);
         navigate("/");
@@ -38,7 +37,11 @@ export const ForgotPassword: FC = () => {
     <>
       <div className="splitted_screen">
         <PresentationSide />
-        <Form password={true} children={"CHANGE PASSWORD"} onClick={() => handleSubmit}/>
+        <Form 
+        password={true} 
+        children={"CHANGE PASSWORD"} 
+        onClick={() => handleSubmit}
+      />
       </div>
       <Footer />
     </>

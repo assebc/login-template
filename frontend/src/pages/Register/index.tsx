@@ -40,7 +40,8 @@ export const Register: FC = () => {
         <Form 
           register={true} 
           children={"REGISTER"} 
-          onClick={() => handleSubmit}/>
+          onClick={() => handleSubmit}
+        />
       </div>
       <Footer />
     </>

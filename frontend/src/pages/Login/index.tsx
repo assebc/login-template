@@ -36,7 +36,11 @@ export const Login: FC = () => {
     <>
       <div className="splitted_screen">
         <PresentationSide />
-        <Form login={true} children={"LOGIN"} onClick={() => handleSubmit}/>
+        <Form 
+          login={true} 
+          children={"LOGIN"} 
+          onClick={() => handleSubmit}
+        />
       </div>
       <Footer />
     </>

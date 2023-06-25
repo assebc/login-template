@@ -32,6 +32,7 @@ export const Form: FC<IFormProps> = ({
       form={form}
       initialValues={{layout: formLayout}}
       className="form"
+      onFinish={onClick}
     >
       <div className="card_form">
 
@@ -74,7 +75,6 @@ export const Form: FC<IFormProps> = ({
         <button
           className="button_login"
           name="button_login"
-          onClick={onClick}
         >
           {children}
         </button>
