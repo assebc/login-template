@@ -12,16 +12,16 @@ export const ForgotPassword: FC = () => {
 
   const handleSubmit = async ({
     username,
-    password,
+    new_password,
     confirm_password,
   }: any) => {
-    if (password !== confirm_password)
+    if (new_password !== confirm_password)
       return message.error("Passwords do not match!");
 
     try {
       const response = await api.patch("/forgot-password", {
         username,
-        password,
+        new_password,
         confirm_password,
       });
 

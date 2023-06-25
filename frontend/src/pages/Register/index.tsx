@@ -21,8 +21,7 @@ export const Register: FC = () => {
     try {
       const response = await api.post("/register", {
         username,
-        password,
-        confirm_password,
+        password
       });
 
       if (response.status === 201) {
