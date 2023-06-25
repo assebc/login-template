@@ -11,7 +11,7 @@ class UserController {
 
     try {
       const hashedPw = await bcryptjs.hash(password, +process.env.SALT);
-      const newUser = await prisma.user.register({
+      const newUser = await prisma.user.create({
         data: {
           username,
           password: hashedPw,
