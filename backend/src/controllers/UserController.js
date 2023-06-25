@@ -42,8 +42,8 @@ class UserController {
       },
     });
 
-    if (!user)
-      return response.status(400).json({ error: "Email not found!" });
+    if (!user) 
+      return response.status(400).json({ error: "User not found!" });
 
     if(!new_password || !confirm_password)
       return response.status(400).json({ error: "Invalid data!" });
