@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { PresentationSide } from "../../components/PresentationSide";
 import { Form } from "../../components/Form";
 import { Footer } from "../../components/Footer";
@@ -8,19 +8,16 @@ import api from "../../services/api";
 import "../../styles.css";
 import { message } from "antd";
 
-interface ILoginPayLoad {
-  username: string;
-  password: string;
-}
-
 export const Login: FC = () => {
   const navigate = useNavigate();
+  const [userCallBack, setUserCallBack] = useState("");
+  const [pswdCallBack, setPswdCallBack] = useState("");
 
-  const handleSubmit = async ({ username, password }: ILoginPayLoad) => {
+  const handleSubmit = async () => {
     try {
-      const response = await api.post("login", {
-        username,
-        password,
+      const response = await api.post("/", {
+        username: userCallBack,
+        password: pswdCallBack
       });
 
       if (response.status == 200) {
@@ -36,7 +33,14 @@ export const Login: FC = () => {
     <>
       <div className="splitted_screen">
         <PresentationSide />
-        <Form login={true} children={"LOGIN"} onClick={() => handleSubmit}/>
+        <Form 
+          login={true} 
+          children={"LOGIN"}
+          username={setUserCallBack}
+          pass={setPswdCallBack}
+          confirm={() => undefined}
+          onClick={() => handleSubmit()}
+        />
       </div>
       <Footer />
     </>
