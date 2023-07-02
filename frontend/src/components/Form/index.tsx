@@ -26,6 +26,8 @@ export const Form: FC<IFormProps> = ({
 }) => {
   const [form] = AntdForm.useForm();
   const [formLayout, setFormLayout] = useState<LayoutType>('vertical');
+}) => {
+
   const navigate = useNavigate();
 
   const onFormLayoutChange = ({ layout }: { layout: LayoutType }) => {
