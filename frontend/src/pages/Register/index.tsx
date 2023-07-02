@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { PresentationSide } from "../../components/PresentationSide";
 import { Form } from "../../components/Form";
 import { Footer } from "../../components/Footer";
@@ -9,19 +9,19 @@ import "../../styles.css";
 
 export const Register: FC = () => {
   const navigate = useNavigate();
+  const [userCallBack, setUserCallBack] = useState("");
+  const [pswdCallBack, setPswdCallBack] = useState("");
+  const [confirmCallBack, setConfirmCallBack] = useState("");
 
-  const handleSubmit = async ({
-    username,
-    password,
-    confirm_password,
-  }: any) => {
-    if (password !== confirm_password)
+  const handleSubmit = async () => {
+    if (pswdCallBack !== confirmCallBack)
       return message.error("Passwords do not match!");
 
     try {
       const response = await api.post("/register", {
-        username,
-        password
+        username: userCallBack,
+        password: pswdCallBack,
+        confirm_password: confirmCallBack
       });
 
       if (response.status === 201) {
@@ -39,8 +39,11 @@ export const Register: FC = () => {
         <PresentationSide />
         <Form 
           register={true} 
-          children={"REGISTER"} 
-          onClick={() => handleSubmit}
+          children={"REGISTER"}
+          username={setUserCallBack}
+          pass={setPswdCallBack}
+          confirm={setConfirmCallBack}
+          onClick={() => handleSubmit()}
         />
       </div>
       <Footer />

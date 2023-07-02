@@ -35,6 +35,12 @@ class UserController {
   async forgot_password(request, response){
     const { username, new_password, confirm_password } = request.body;
 
+    if(!new_password || !confirm_password)
+      return response.status(400).json({ error: "Invalid data!" });
+    
+    if(!(new_password === confirm_password))
+      return response.status(400).son({ error: "Passwords don't match!" });
+
     const user = await prisma.user.findFirst({
       where: {
         username,
@@ -43,12 +49,6 @@ class UserController {
 
     if (!user) 
       return response.status(400).json({ error: "User not found!" });
-
-    if(!new_password || !confirm_password)
-      return response.status(400).json({ error: "Invalid data!" });
-    
-    if(!(new_password === confirm_password))
-      return response.status(400).son({ error: "Passwords don't match!" });
 
     const newPasswordHashed = await bcryptjs.hash(
       new_password,

@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useState, Dispatch, SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form as AntdForm, Input } from "antd";
 import "./styles.css";
@@ -10,6 +10,9 @@ interface IFormProps {
   register?: boolean;
   password?: boolean;
   onClick: () => void;
+  username: Dispatch<SetStateAction<string>>;
+  pass: Dispatch<SetStateAction<string>>;
+  confirm: Dispatch<SetStateAction<string>>;
 }
 export const Form: FC<IFormProps> = ({
   children,
@@ -17,6 +20,9 @@ export const Form: FC<IFormProps> = ({
   register,
   password,
   onClick,
+  username,
+  pass,
+  confirm
 }) => {
   const [form] = AntdForm.useForm();
   const [formLayout, setFormLayout] = useState<LayoutType>('vertical');
@@ -32,7 +38,6 @@ export const Form: FC<IFormProps> = ({
       form={form}
       initialValues={{layout: formLayout}}
       className="form"
-      onFinish={onClick}
     >
       <div className="card_form">
 
@@ -40,25 +45,25 @@ export const Form: FC<IFormProps> = ({
 
         <div className="textfield">
           <label htmlFor="user">Username</label>
-          <input type="text" name="username" placeholder="Insert username" required autoComplete="off" />
+          <input type="text" name="username" placeholder="Insert username" onChange={(event) => username(event.target.value)} required autoComplete="off" />
         </div>
 
         { register || login ? (
           <div className="textfield">
             <label htmlFor="password">Password</label>
-            <Input type="password" name="password" placeholder="Insert password" required autoComplete="off" />
+            <Input type="password" name="password" placeholder="Insert password" onChange={(event) => pass(event.target.value)} required autoComplete="off" />
           </div>
         ) : (
           <div className="textfield"> 
             <label htmlFor="password">New Password</label>
-            <Input type="password" name="password" placeholder="Insert password" required autoComplete="off" />
+            <Input type="password" name="password" placeholder="Insert password" onChange={(event) => pass(event.target.value)} required autoComplete="off" />
           </div>
         )}
         
         { register || password ? (
           <div className="textfield">
             <label htmlFor="password">Confirm Password</label>
-            <Input type="password" name="confirm_password" placeholder="Confirm password" required autoComplete="off" />
+            <Input type="password" name="confirm_password" placeholder="Confirm password" onChange={(event) => confirm(event.target.value)} required autoComplete="off" />
           </div>
         ) : undefined }
 
@@ -75,6 +80,7 @@ export const Form: FC<IFormProps> = ({
         <button
           className="button_login"
           name="button_login"
+          onClick={onClick}
         >
           {children}
         </button>
